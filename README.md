@@ -88,17 +88,79 @@ Technical SEO is mainly about making sure search engines like Google can properl
 
 
 
-## How to implement SEO with Next.js
+# How to implement SEO with Next.js
 
-In Next.js, metadata is a structured way to define all the information about a page that search engines and social platforms need in order to understand, display, and share it correctly. Instead of manually writing <head> tags like in traditional HTML, Next.js lets you export a metadata object, and it automatically generates the correct <title>, <meta>, <link>, and other tags in the final HTML. This means your page gets a clear identity without you worrying about low-level implementation. For search engines like Google, this metadata acts as the first layer of understanding—it tells them what the page is about, how it should appear in results, and which version of the page is the main one.
+Metadata in Next.js is a simple way to describe what your page is about so that search engines like Google and social platforms can understand and display it correctly. Instead of manually writing <head> tags, you define a metadata object, and Next.js automatically generates the correct title, description, and sharing previews. This helps your page appear properly in search results and when someone shares your link, making it more clickable and clear.
+```
+export const metadata: Metadata = {
+  title: 'Automatorr | Automation, CRM & Technology Solutions — Sydney, Australia',
+  description: 'Automatorr is Sydneys trusted technology partner. Delivering automation, CRM, managed IT, software engineering and global talent across Australia and APAC. Est. 2006.',
+  alternates: { canonical: 'https://www.automatorr.com/'},
+  keywords:["automation services Australia","workflow automation Sydney, CRM implementation Australia, RPA consulting, managed IT services Sydney, technology partner Australia"],
+  openGraph: {
+    siteName:"Automatorr",
+    locale: 'en_AU',
+    url: 'https://www.automatorr.com/',
+    title: 'Automatorr — Automation & Technology Solutions, Sydney',
+    description: 'Automation, CRM, managed IT and global talent for Australian businesses. 50+ clients. Est. 2006.',
+    images: [{ url: 'https://www.automatorr.com/og/homepage.png', width: 1200, height: 630, alt: 'Automatorr — Automation & Technology Solutions, Sydney' }],
+    type: 'website',
+  },
+  twitter: {
+    site:"@automatorr_nair",
+    card: 'summary_large_image',
+    title: 'Automatorr — Automation & Technology Solutions, Sydney',
+    description: 'Automation, CRM, managed IT and global talent for Australian businesses. 50+ clients. Est. 2006.',
+    images: ['https://www.automatorr.com/og/homepage.png'],
+  },
+};
+```
 
-At the core, metadata gives you control over how your page is interpreted and presented. The title is one of the strongest signals—it directly appears in search results and heavily influences ranking and click-through rate. The description provides a short summary that users read before clicking; while it doesn’t directly affect ranking, it strongly impacts whether users choose your result. The canonical URL tells search engines which version of a page is the original, which is critical when similar or duplicate pages exist. Without it, search engines might split ranking power across multiple URLs or even rank the wrong one.
+A sitemap is a file that lists all the important pages of your website so search engines can easily discover them. Instead of relying only on links, the sitemap directly tells search engines which pages exist and should be checked. This is especially useful when your site has many pages or some pages are not easily reachable through navigation.
 
-Open Graph metadata goes deeper into how your content behaves when shared. When someone shares your link on platforms like LinkedIn, WhatsApp, or Facebook, those platforms don’t guess what to show—they read Open Graph tags. These tags define the preview card: title, description, image, and URL. Without Open Graph, your link might show a random image or incomplete text, which reduces engagement. With it, you control exactly how your content is presented, making it more clickable and professional. Although Open Graph itself is not a direct ranking factor, it indirectly supports SEO by improving visibility and user interaction, which are signals search engines observe over time.
+```
+import { MetadataRoute } from 'next';
 
-Robots-related configuration is part of technical communication between your site and search engines. A robots.txt file tells bots what they are allowed to crawl and what they should avoid. This is important because not all parts of your site should be indexed—for example, admin pages, private routes, or duplicate content. By guiding bots properly, you ensure they spend their time crawling important pages instead of wasting resources. A sitemap works alongside this by explicitly listing all the important URLs you want search engines to know about. While bots can discover pages through links, a sitemap guarantees that nothing important is missed, especially in large or complex websites.
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = 'https://www.automatorr.com';
+  const now = new Date();
 
-Next.js simplifies all of this by turning these concepts into code-driven configuration. When you define metadata in a page, it ensures consistency and correctness across your entire application. When you create robots.ts and sitemap.ts, Next.js automatically exposes them as /robots.txt and /sitemap.xml, making them accessible to search engines without manual setup. This tight integration means you are not just adding SEO as an afterthought—you are building it directly into your application’s structure.
+  return [
+    { url: base, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
+    { url: `${base}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/solutions`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${base}/solutions/coms`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/solutions/ai-bot`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/solutions/invoice-automation`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/solutions/contract-automation`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/solutions/clockit`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/solutions/creatio`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/solutions/business-central`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/solutions/compliance`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/services`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${base}/services/automation-services`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/services/crm-services`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/services/msp-services`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/services/software-engineering`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/services/global-talent`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/case-studies`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${base}/blogs`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${base}/contact-us`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
+    { url: `${base}/hockey`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+  ];
+}
+```
 
-At a deeper level, metadata in Next.js is about standardizing communication between your application and external systems. Search engines, social platforms, and bots don’t “see” your React components—they only read the final HTML output. Metadata ensures that this output contains all the signals needed for proper crawling, indexing, ranking, and sharing. Without it, your content may exist but lack context, leading to poor visibility. With it, every page becomes a well-defined entity that can be discovered, understood, and presented effectively across different platforms.
+The robots.txt file is used to control what search engine bots are allowed to access on your website. It acts like a guide, telling bots which pages they can crawl and which ones they should ignore. This helps prevent unnecessary or sensitive pages from being indexed and ensures that search engines focus only on your important content.
+```
+User-agent: *
+Allow: /
+
+# Block Next.js internals
+Disallow: /_next/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.automatorr.com/sitemap.xml
+```
 
