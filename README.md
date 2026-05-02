@@ -5,6 +5,9 @@ SEO (Search Engine Optimization) is the process of improving a website so that s
 <br/>
 <br/>
 
+
+
+
 ## How Search Engines Work ?
 Search engines like Google work in three main steps: crawling, indexing, and ranking. These steps decide whether your website will appear in search results or not.
 
@@ -16,3 +19,45 @@ Finally comes **ranking**, which is the most important step. When a user searche
 
 Several things affect ranking. The most important ones include content quality (useful, clear, and relevant information), proper use of keywords, website speed, mobile responsiveness, user experience, and backlinks (links from other websites). If your website performs well in these areas, search engines consider it more trustworthy and rank it higher.
 In simple terms, if crawling means “finding your page,” indexing means “understanding your page,” and ranking means “deciding where your page should appear,” then SEO is about improving all three so your website can be discovered, understood, and shown to users at the top of search results.
+<br/>
+<br/>
+
+
+
+
+## SEO Implementation & Types :
+
+SEO is 3 types - >
+1 - on page SEO
+2 - off page SEO
+3 - Technical SEO
+<br/>
+
+### ON Page SEO
+On-page SEO traditionally means optimizing everything inside a single web page so that search engines like Google can clearly understand what the page is about and show it for the right searches. Earlier (before frameworks like Next.js), developers manually wrote HTML and placed SEO elements directly inside the <head> and content of the page. The idea was simple: clearly tell the search engine the topic of the page and make the content useful for users.
+
+The most important parts were the title tag, meta description, headings (H1, H2), URL structure, and content with proper keywords. The title tag was the main ranking signal—it had to include the primary keyword. The meta description didn’t directly affect ranking but improved click rate. Headings structured the content so both users and search engines could understand it easily. Keywords were placed naturally in the content, not forced. Images were given alt text so search engines could understand them. Internal links connected related pages, helping both navigation and crawling.
+```
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Best Running Shoes | Free Delivery</title>
+  <meta name="description" content="Buy the best running shoes with comfort and durability at affordable prices.">
+  <link rel="canonical" href="https://example.com/running-shoes" />
+</head>
+
+<body>
+  <h1>Best Running Shoes</h1>
+
+  <p>Find the best running shoes for men and women with high comfort and durability.</p>
+
+  <h2>Top Features</h2>
+  <p>Lightweight, breathable material, long-lasting sole.</p>
+
+  <img src="shoes.jpg" alt="Best running shoes for men" />
+
+  <a href="/shoes">Explore more shoes</a>
+</body>
+</html>
+```
+
