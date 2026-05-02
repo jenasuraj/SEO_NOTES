@@ -2,8 +2,8 @@
 
 ## What is SEO?
 SEO (Search Engine Optimization) is the process of improving a website so that search engines like Google can clearly understand its content and show it to users when they search for related topics. Imagine you create a website, but you don’t do any SEO—your pages may exist, but search engines don’t know what each page is about, so maybe only one page (or none) appears in search results, and that too very low. It’s like having a shop in a hidden alley with no signboard—people simply won’t find it. SEO solves this by organizing your website properly: adding clear titles, relevant keywords, good content, proper structure, and technical improvements. After applying SEO, each page of your site becomes meaningful and searchable, so instead of one unclear result, you now have multiple pages (URLs) appearing for different searches. For example, one page can rank for “buy shoes,” another for “best running shoes,” and another for “how to clean shoes.” This increases your visibility, brings more users without paying for ads, and improves overall user experience. In simple terms, SEO is needed because without it your website remains invisible, but with it, your website becomes discoverable from many different paths.
-
-
+<br/>
+<br/>
 
 ## How Search Engines Work ?
 Search engines like Google work in three main steps: crawling, indexing, and ranking. These steps decide whether your website will appear in search results or not.
