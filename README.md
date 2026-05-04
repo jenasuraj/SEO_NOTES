@@ -197,3 +197,11 @@ Disallow: /api/
 Sitemap: https://www.automatorr.com/sitemap.xml
 ```
 
+<br/>
+<br/>
+
+IMPORTANT -> You can add sitemap.ts and robots.ts within the /app in next js cuz if so, they will eventually produce sitemap.xml and robots.txt . But you want to add robots.txt and sitemap.xml, you can add the files in /public . So these are static SEO, i.e if you are using next js and you are about to add metadata, make sure you must make the page as server component because next js metadata doesnt work in client component .
+
+
+
+# Dynamic SEO
