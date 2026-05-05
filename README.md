@@ -13,4 +13,4 @@ A personal collection of in-depth developer notes written for clarity — coveri
 
 ---
 
----->忍びの時代は終わった 💀🤣
+忍びの時代は終わった 💀🤣
